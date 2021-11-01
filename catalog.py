@@ -27,7 +27,7 @@ class Info(Resource):
         
         dataFrame = pd.DataFrame(data_fount, columns = ['title','quantity', 'price'])
         json = dataFrame.to_json(orient="records")
-    
+        #rr
         # return data found in csv
         return {'items': json},200 
 
