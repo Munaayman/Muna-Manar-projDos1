@@ -5,7 +5,7 @@ import requests
 app = Flask(__name__)
 api = Api(app)
 
-# class Search(Resource):
+ class Search(Resource):
     # #search using get method
     # def get(self,name):
         # #read data file
@@ -18,7 +18,7 @@ api = Api(app)
  
         # # return data
         # return {'items': json},200 
-           
+        # good    
 class Info(Resource):
 
     def get(self,num):
