@@ -18,3 +18,4 @@ api.add_resource(Info, '/info/<int:num>')
 
 if __name__ == '__main__':
     app.run()
+    #manar
