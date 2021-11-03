@@ -5,20 +5,20 @@ import requests
 app = Flask(__name__)
 api = Api(app)
 
- class Search(Resource):
-    # #search using get method
-    # def get(self,name):
-        # #read data file
-        # self.data = pd.read_csv('catalog.csv')
-        # #compare with the specified topic and store all the related entities in data_fount
-        # data_fount=self.data.loc[self.data['topic'] == name]
-        # #convert it to data frame and choose id and title columns
-        # dataFrame = pd.DataFrame(data_fount, columns = ['id','title'])
-        # json = dataFrame.to_json(orient="records")
+class Search(Resource):
+    #search using get method
+    def get(self,name):
+        #read data file
+        self.data = pd.read_csv('catalog.csv')
+        #compare with the specified topic and store all the related entities in data_fount
+        data_fount=self.data.loc[self.data['topic'] == name]
+        #convert it to data frame and choose id and title columns
+        dataFrame = pd.DataFrame(data_fount, columns = ['id','title'])
+        json = dataFrame.to_json(orient="records")
  
-        # # return data
-        # return {'items': json},200 
-        # good    
+        # return data
+        return {'items': json},200 
+        
 class Info(Resource):
 
     def get(self,num):
@@ -41,7 +41,7 @@ class Info(Resource):
         # return {'message':'You bought this book sucessfully '},200
                  
 # Add URL endpoints
-#api.add_resource(Search, '/search/<string:name>')
+api.add_resource(Search, '/search/<string:name>')
 api.add_resource(Info, '/info/<int:num>')
 #api.add_resource(Update, '/update/item_num/<int:num>')
 
